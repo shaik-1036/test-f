@@ -1,6 +1,7 @@
 /* src/styles/old-age-homes.css */
 .donation-container {
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  
+  background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

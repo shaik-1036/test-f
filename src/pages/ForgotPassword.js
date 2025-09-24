@@ -19,7 +19,7 @@ function ForgotPassword() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/forgot-password', { email, newPassword });
+      const res = await axios.post('https://test-b-theta.vercel.app/api/forgot-password', { email, newPassword });
       if (res.data.success) {
         setMessage('Password updated successfully! You can now login with the new password.');
       } else {

@@ -22,7 +22,7 @@ function Signup() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/signup', formData);
+      const res = await axios.post('https://test-b-theta.vercel.app/api/signup', formData);
       if (res.data.success) {
         alert('Signup successful!');
         navigate('/login');

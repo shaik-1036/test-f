@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Footer from '../components/Footer';
+
 import '../styles/admin-login.css';
 
 function AdminLogin() {
@@ -17,8 +17,8 @@ function AdminLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Hardcoded admin credentials
-    const admin1 = { email: 'admin1@restaurant.com', password: 'skill@connect12' };
-    const admin2 = { email: 'admin2@restaurant.com', password: 'skill@connect12' };
+    const admin1 = { email: 'admin1@admin-skill-connect.com', password: 'skill@connect90' };
+    const admin2 = { email: 'admin2@admin-skill-connect.com', password: 'skill@connect90' };
     
     if ((email === admin1.email && password === admin1.password) || 
         (email === admin2.email && password === admin2.password)) {

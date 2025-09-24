@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { MessageSquare, Upload, AlertCircle, Trash2 } from 'lucide-react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Footer from '../components/Footer';
+
 import '../styles/user-dashboard.css';
 
 function UserDashboard() {
@@ -51,7 +51,7 @@ function UserDashboard() {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/messages', {
+      const res = await axios.get('https://test-b-theta.vercel.app/api/messages', {
         params: { category: user.status }
       });
       const newMessages = res.data;
@@ -70,7 +70,7 @@ function UserDashboard() {
 
   const fetchResumeData = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/user-resume?email=${user.email}`);
+      const res = await axios.get(`https://test-b-theta.vercel.app/api/user-resume?email=${user.email}`);
       if (res.data.success && res.data.resumeData) {
         setResumeData(res.data.resumeData);
       } else {
@@ -102,7 +102,7 @@ function UserDashboard() {
       return;
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/forgot-password', { email: user.email, newPassword });
+      const res = await axios.post('https://test-b-theta.vercel.app/api/forgot-password', { email: user.email, newPassword });
       if (res.data.success) {
         alert('Password updated successfully!');
         setIsUpdatingPassword(false);
@@ -133,7 +133,7 @@ function UserDashboard() {
     formData.append('name', user.fullName || 'Unknown');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/upload-resume', formData, {
+      const res = await axios.post('https://test-b-theta.vercel.app/api/upload-resume', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       if (res.data.success) {
@@ -153,7 +153,7 @@ function UserDashboard() {
 
   const handleDeleteResume = async () => {
     try {
-      const res = await axios.delete('http://localhost:5000/api/delete-resume', {
+      const res = await axios.delete('https://test-b-theta.vercel.app/api/delete-resume', {
         data: { email: user.email }
       });
       if (res.data.success) {
@@ -181,7 +181,7 @@ function UserDashboard() {
     formData.append('name', user.fullName || 'Unknown');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/upload-resume', formData, {
+      const res = await axios.post('https://test-b-theta.vercel.app/api/upload-resume', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       if (res.data.success) {

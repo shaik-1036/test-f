@@ -36,7 +36,7 @@ const OldAgeHomes = () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get('http://localhost:5000/api/old-age-homes');
+      const response = await axios.get('https://test-b-theta.vercel.app/api/old-age-homes');
       setHomes(response.data.data || []);
       setHomeCount(response.data.count || 0);
     } catch (err) {
@@ -76,7 +76,7 @@ const OldAgeHomes = () => {
     formData.append('phone', transactionData.phone);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/upload-transaction', formData, {
+      const response = await axios.post('https://test-b-theta.vercel.app/api/upload-transaction', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       if (response.data.success) {

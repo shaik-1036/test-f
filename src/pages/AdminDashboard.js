@@ -43,7 +43,7 @@ function AdminDashboard() {
   // User-related functions
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/users');
+      const res = await axios.get('https://test-b-theta.vercel.app/api/users');
       setUsers(res.data);
     } catch (err) {
       console.error(err);
@@ -52,7 +52,7 @@ function AdminDashboard() {
 
   const fetchUserStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/user-stats');
+      const res = await axios.get('https://test-b-theta.vercel.app/api/user-stats');
       if (res.data.success) {
         setUserStats(res.data);
       }
@@ -63,7 +63,7 @@ function AdminDashboard() {
 
   const fetchMessageStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/message-stats');
+      const res = await axios.get('https://test-b-theta.vercel.app/api/message-stats');
       if (res.data.success) {
         setMessageStats(res.data);
       }
@@ -74,7 +74,7 @@ function AdminDashboard() {
 
   const handleMessageSend = async (category) => {
     try {
-      await axios.post('http://localhost:5000/api/send-message', {
+      await axios.post('https://test-b-theta.vercel.app/api/send-message', {
         category,
         message: messages[category]
       });
@@ -102,7 +102,7 @@ function AdminDashboard() {
     setSearchError('');
     try {
       const email = searchQuery.trim().toLowerCase();
-      const res = await axios.get(`http://localhost:5000/api/user-resume?email=${encodeURIComponent(email)}`);
+      const res = await axios.get(`https://test-b-theta.vercel.app/api/user-resume?email=${encodeURIComponent(email)}`);
       if (res.data.success && res.data.resumeData) {
         setSearchedUser(res.data);
       } else {
@@ -128,10 +128,10 @@ function AdminDashboard() {
     setError('');
     try {
       const [oldAgeRes, orphansRes, oldAgeStatsRes, orphanStatsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/old-age-homes'),
-        axios.get('http://localhost:5000/api/orphans'),
-        axios.get('http://localhost:5000/api/old-age-homes-stats'),
-        axios.get('http://localhost:5000/api/orphans-stats'),
+        axios.get('https://test-b-theta.vercel.app/api/old-age-homes'),
+        axios.get('https://test-b-theta.vercel.app/api/orphans'),
+        axios.get('https://test-b-theta.vercel.app/api/old-age-homes-stats'),
+        axios.get('https://test-b-theta.vercel.app/api/orphans-stats'),
       ]);
       setOldAgeHomes(oldAgeRes.data.data || []);
       setOrphans(orphansRes.data.data || []);
@@ -177,7 +177,7 @@ function AdminDashboard() {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/upload-qr', formData, {
+      const res = await axios.post('https://test-b-theta.vercel.app/api/upload-qr', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       if (res.data.success) {
@@ -533,8 +533,8 @@ function AdminDashboard() {
                 className="input-field"
               />
               <select name="type" value={qrUpload.type} onChange={handleQrUploadChange} required className="input-field">
-                <option value="old-age">Old Age Home</option>
-                <option value="orphan">Orphan</option>
+                <option value="old-age">Masjids</option>
+                <option value="orphan">Madrasa</option>
               </select>
               <input type="file" accept="image/jpeg,image/png" name="qrImage" onChange={handleFileChange} required className="input-field" />
               <input type="file" accept="image/jpeg,image/png" name="homeImage" onChange={handleFileChange} className="input-field" />
